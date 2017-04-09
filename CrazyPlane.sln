@@ -1,14 +1,18 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-
+Project("{E32ED766-7DF9-298A-728D-ED9CD32E38E9}") = "CrazyPlane", "Assembly-CSharp.csproj", "{21EDC2EB-9784-674E-F14D-2F974E7B72BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-
+		{21EDC2EB-9784-674E-F14D-2F974E7B72BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21EDC2EB-9784-674E-F14D-2F974E7B72BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21EDC2EB-9784-674E-F14D-2F974E7B72BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21EDC2EB-9784-674E-F14D-2F974E7B72BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

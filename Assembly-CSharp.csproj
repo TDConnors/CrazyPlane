@@ -45,7 +45,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_Scripts\Airplane.cs" />
+     <Compile Include="Assets\_Scripts\DestroyByContact.cs" />
+     <Compile Include="Assets\_Scripts\DestroyByTime.cs" />
+     <Compile Include="Assets\_Scripts\TargetSpawner.cs" />
+     <Compile Include="Assets\_Scripts\cameraSmoothFollow.cs" />
+     <Compile Include="Assets\_Scripts\flightControl.cs" />
+     <Compile Include="Assets\_Scripts\gameController.cs" />
+     <Compile Include="Assets\_Scripts\planeExplosion.cs" />
+     <Compile Include="Assets\_Scripts\planeShrapnel.cs" />
      <None Include="Assets\Airplane\shaders\specillumShader.shader" />
      <None Include="Assets\Airplane\shaders\fogplane.shader" />
      <None Include="Assets\Airplane\shaders\building.shader" />
