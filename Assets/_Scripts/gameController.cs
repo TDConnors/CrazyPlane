@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
-public class gameController : MonoBehaviour {
+public class GameController : MonoBehaviour {
 
 
 public Transform text;
+public Text ScoreText;
 public Transform player;
 public Vector3 startPos;
 public int score;
@@ -47,7 +49,7 @@ private bool gameend = false;
 			Cursor.visible = (true);
 			CursorLockedVar = (false);
 		}	
-		
+		ScoreText.text =  "Score: " + score.ToString();
 	}
 	
 	void GameOver()

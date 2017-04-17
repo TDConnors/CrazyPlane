@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/First.unity
+- path: Assets/_Scenes/testOfSkyscraper.unity
   isLoaded: 1
   isActive: 1

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class flightControl : MonoBehaviour {
 
-public GameObject gameController;
+
 public AudioSource myAudio;
 public float dampTime ;
 public float maxVelocityChange;
@@ -23,7 +23,7 @@ private float meshTurn;
 private float rotationX = 0f;
 private float rotationY = 0f;
 private float sensitivityX ;
-
+private GameController gameController;
 private Quaternion meshRotation;
 private Quaternion originalMeshRotation;
 private Vector3 forward = Vector3.forward;
@@ -38,8 +38,17 @@ private Vector3 right;
 	}
 	// Use this for initialization
 	void Start () 
-	{
+	{	
 		originalMeshRotation = planeMesh.localRotation;
+		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+		if (gameControllerObject != null)
+		{
+			gameController = gameControllerObject.GetComponent <GameController>();
+		}
+		if (gameController == null)
+		{
+			Debug.Log ("Cannot find 'GameController' script");
+		}
 	}
 	
 	// Update is called once per frame
@@ -111,7 +120,7 @@ private Vector3 right;
 		Vector3 pos = contact.point;
 		Instantiate(explosion,pos,rot);
 		Instantiate(pieces,pos,rot);
-		gameController.GetComponent<gameController>().BroadcastMessage("GameOver");
+		gameController.BroadcastMessage("GameOver");
 		Destroy(gameObject);	
 	}
 	

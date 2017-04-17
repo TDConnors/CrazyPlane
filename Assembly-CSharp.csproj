@@ -45,16 +45,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\UltraReal\UltraRealTools\Scripts\AbstractBases\UltraRealMonobehaviorBase.cs" />
+     <Compile Include="Assets\UltraReal\UltraRealTools\Scripts\Input\MouseJoystick.cs" />
+     <Compile Include="Assets\UltraReal\UltraRealTools\Scripts\Utility\CurserControl.cs" />
+     <Compile Include="Assets\UltraReal\UltraRealTools\Scripts\Utility\ScreenCap.cs" />
+     <Compile Include="Assets\UltraReal\UltraRealTools\Scripts\Utility\TimedDestroy.cs" />
+     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\AbstractBases\UltraRealAmmoBase.cs" />
+     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\AbstractBases\UltraRealDamageBase.cs" />
+     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\AbstractBases\UltraRealLauncherBase.cs" />
+     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\AbstractBases\UltraRealShellCasingBase.cs" />
+     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\AbstractBases\UltraRealWeaponSystemBase.cs" />
+     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\BasicWeaponSystem\BasicAmmoRayCast.cs" />
+     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\BasicWeaponSystem\BasicAmmoRigidBody.cs" />
+     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\BasicWeaponSystem\BasicDamage.cs" />
+     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\BasicWeaponSystem\BasicInputExample.cs" />
+     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\BasicWeaponSystem\BasicLauncher.cs" />
+     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\BasicWeaponSystem\BasicShellCasing.cs" />
      <Compile Include="Assets\_Scripts\DestroyByContact.cs" />
      <Compile Include="Assets\_Scripts\DestroyByTime.cs" />
+     <Compile Include="Assets\_Scripts\GameController.cs" />
      <Compile Include="Assets\_Scripts\TargetSpawner.cs" />
      <Compile Include="Assets\_Scripts\cameraSmoothFollow.cs" />
      <Compile Include="Assets\_Scripts\flightControl.cs" />
-     <Compile Include="Assets\_Scripts\gameController.cs" />
      <Compile Include="Assets\_Scripts\planeExplosion.cs" />
      <Compile Include="Assets\_Scripts\planeShrapnel.cs" />
      <None Include="Assets\Airplane\shaders\specillumShader.shader" />
      <None Include="Assets\Airplane\shaders\fogplane.shader" />
+     <None Include="Assets\UltraReal\ReadMe.txt" />
      <None Include="Assets\Airplane\shaders\building.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

@@ -7,7 +7,6 @@ public class TargetSpawner : MonoBehaviour
 	public float spawnRate;
     public GameObject[] target;
 	public Transform ballSpawn;
-	public GameObject gameController;
 	public float xMin;
 	public float xMax;
 	public float yMin;
@@ -19,9 +18,19 @@ public class TargetSpawner : MonoBehaviour
     private float y;
     private float z;
 	private float nextMove;
+	private GameController gameController;
 	
 	void Start ()
 	{
+		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+		if (gameControllerObject != null)
+		{
+			gameController = gameControllerObject.GetComponent <GameController>();
+		}
+		if (gameController == null)
+		{
+			Debug.Log ("Cannot find 'GameController' script");
+		}
 	}
 	int randomWeighter()
 	{
@@ -36,7 +45,7 @@ public class TargetSpawner : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Time.time > nextMove && gameController.GetComponent<gameController>().isOver()== false )
+		if (Time.time > nextMove && gameController.isOver()== false )
         {
             nextMove = Time.time + spawnRate;
 			x = Random.Range(xMin, xMax);
