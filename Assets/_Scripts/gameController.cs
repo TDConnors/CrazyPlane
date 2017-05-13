@@ -1,19 +1,28 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
+using System.Diagnostics;
+ 
+ 
 public class GameController : MonoBehaviour {
 
 
-public Transform text;
+public Stopwatch timer;
+public float timeLimit;
+public int score;
 public Text ScoreText;
+public Text text;
+public Text text2;
+public Text time;
 public Transform player;
 public Vector3 startPos;
-public int score;
-private bool createdPlayer = false;
-private bool playerDead = false;
-private bool CursorLockedVar = true;
-private bool gameend = false;
+private bool createdPlayer;
+private bool CursorLockedVar;
+private bool gameend;
+private bool playerDead;
+private bool killPlayer;
+
  
 	// Use this for initialization
 	void Start () 
@@ -22,39 +31,78 @@ private bool gameend = false;
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = (false);
 		text.gameObject.SetActive(true);
+		text2.gameObject.SetActive(true);
 		CursorLockedVar = true;
-	
+		createdPlayer = false;
+		gameend = false;
+		playerDead = false;
+		killPlayer = false;
+		timer = new Stopwatch();
+
 	}
-	
+	//	* 100.0f) / 100.0f)
 	// Update is called once per frame
 	void Update () 
 	{
-		if (!createdPlayer || playerDead)
-		{
-			text.gameObject.SetActive(true);
-			if(Input.anyKeyDown)
+		if (!gameend)
+		{	
+			if (!createdPlayer || playerDead)
 			{
-				StartCoroutine(onStart());
+				text.gameObject.SetActive(true);
+				text2.gameObject.SetActive(true);
+				if(Input.anyKeyDown)
+				{
+					onStart();
+				}
+			}
+			else
+			{
+				if (timer.Elapsed.Seconds < timeLimit)
+				{			
+					time.text = "Time: " + (timeLimit - timer.Elapsed.Seconds ).ToString();
+				}
+		
+				if (timer.Elapsed.Seconds >= timeLimit) //only happens once
+				{
+					if (killPlayer == false)
+					{
+						timer.Stop();
+						time.text = "Time: 0";
+						killPlayer = true;
+						GameObject playerObject = GameObject.FindWithTag ("Player");
+						playerObject.BroadcastMessage("BlowUp");
+					}
+				}
+			}
+			if (Input.GetKeyDown ("escape") && !CursorLockedVar) 
+			{
+				Cursor.lockState = CursorLockMode.Locked;
+				Cursor.visible = (false);
+				CursorLockedVar = (true);
+			}
+			else if(Input.GetKeyDown("escape") && CursorLockedVar)
+			{
+				Cursor.lockState = CursorLockMode.None;
+				Cursor.visible = (true);
+				CursorLockedVar = (false);
 			}
 		}
-		if (Input.GetKeyDown ("escape") && !CursorLockedVar) 
+		else
 		{
-			Cursor.lockState = CursorLockMode.Locked;
-			Cursor.visible = (false);
-			CursorLockedVar = (true);
+			if (Input.GetKeyDown (KeyCode.R))
+			{
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			}
 		}
-		else if(Input.GetKeyDown("escape") && CursorLockedVar)
-		{
-			Cursor.lockState = CursorLockMode.None;
-			Cursor.visible = (true);
-			CursorLockedVar = (false);
-		}	
-		ScoreText.text =  "Score: " + score.ToString();
 	}
 	
 	void GameOver()
 	{
 	print(score);
+	text.text = "Game Over \n your score is : " + score +"\n \n Press 'R' to Restart";
+	text.gameObject.SetActive(true);
+	text2.text = "Game Over \n your score is : " + score +"\n \n Press 'R' to Restart";
+	text2.gameObject.SetActive(true);
 	playerDead = true;
 	gameend = true;
 	}
@@ -63,21 +111,24 @@ private bool gameend = false;
 		if(gameend == false)
 		{
 			score += newScoreValue;
+			ScoreText.text =  "Score: " + score.ToString();
 		}
 	}
 	public bool isOver()
 	{
 		return gameend;
 	}
-	IEnumerator onStart()
+	public bool isCreated()
 	{
-		yield return new WaitForSeconds(0.8f);
-		if (!createdPlayer || playerDead)
-		{
+		return createdPlayer;
+	}
+	public void onStart()
+	{
 			Instantiate(player, startPos, Quaternion.identity);
 			text.gameObject.SetActive(false);
+			text2.gameObject.SetActive(false);
 			createdPlayer = true;
 			playerDead = false;
-		}
+			timer.Start();
 	}	
 }

@@ -10,7 +10,7 @@ public class DestroyByContact : MonoBehaviour
 	
 	void Start ()
 	{
-		//Destroy (gameObject, lifetime);
+		Destroy (gameObject, lifetime);
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
 		if (gameControllerObject != null)
 		{

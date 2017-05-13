@@ -5,6 +5,16 @@ var height = 3.0;
 var damping = 5.0;
 var smoothRotation = true;
 var rotationDamping = 10.0;
+ 
+private var revertFogState = false;
+ 
+function OnPreRender () {
+	RenderSettings.fog = false;
+}
+ 
+function OnPostRender () {
+	RenderSettings.fog = revertFogState;
+}
 
 function Start()
 {
@@ -26,3 +36,6 @@ function LateUpdate ()
 
 	else transform.LookAt (target,Vector3.up);
 }
+ 
+@script AddComponentMenu ("Rendering/Fog Layer")
+@script RequireComponent (Camera)
