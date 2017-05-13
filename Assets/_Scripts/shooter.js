@@ -86,10 +86,7 @@ function fire()
 	var hit : RaycastHit = new RaycastHit();
 	
 	if (Physics.Raycast(ray,hit, range,mask))
-    {   
-      		
-      	if(hit.rigidbody) hit.rigidbody.AddForceAtPosition (force * fwrd , hit.point);
-      	hit.transform.SendMessageUpwards ("Damage",damage, SendMessageOptions.DontRequireReceiver);
+    {   	
       	var decal = Instantiate(impactprefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
       	decal.parent = hit.transform;
     }

@@ -112,3 +112,19 @@ function OnCollisionEnter(collision : Collision)
 		gamecontroller.BroadcastMessage("GameOver");
 		Destroy(gameObject);
 	}
+
+function BlowUp()
+{
+		var rot : Quaternion = Quaternion.FromToRotation(Vector3.up, planemesh.position);
+		var pos : Vector3 = planemesh.position;
+		Instantiate(explosion, pos, rot);
+		Instantiate(pieces, pos, rot);
+		var gamecontroller = GameObject.FindWithTag ("GameController");
+		gamecontroller.BroadcastMessage("GameOver");
+		Destroy(gameObject);
+	
+	
+	
+	
+}
+	
