@@ -16,12 +16,15 @@ public class DialRotate : MonoBehaviour {
 	{ 
 		if (target != null)
 		{
-			Vector3 newRotation = new Vector3(0,0, target.transform.eulerAngles.z);
+			float turn = target.transform.eulerAngles.z;
+			if (turn <0.0f)
+				turn = 180.0f + turn;
+			Vector3 newRotation = new Vector3(0,0, turn);
 			this.transform.eulerAngles = newRotation;
 		}
 		else
 		{
-			target = GameObject.FindGameObjectWithTag ("Plane");
+			target = GameObject.FindGameObjectWithTag ("MainCamera");
 		}
 	}
 }

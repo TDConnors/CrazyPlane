@@ -18,7 +18,6 @@ public Text time;
 public Transform player;
 public Vector3 startPos;
 private bool createdPlayer;
-private bool CursorLockedVar;
 private bool gameend;
 private bool playerDead;
 private bool killPlayer;
@@ -32,7 +31,6 @@ private bool killPlayer;
 		Cursor.visible = (false);
 		text.gameObject.SetActive(true);
 		text2.gameObject.SetActive(true);
-		CursorLockedVar = true;
 		createdPlayer = false;
 		gameend = false;
 		playerDead = false;
@@ -74,18 +72,6 @@ private bool killPlayer;
 					}
 				}
 			}
-			if (Input.GetKeyDown ("escape") && !CursorLockedVar) 
-			{
-				Cursor.lockState = CursorLockMode.Locked;
-				Cursor.visible = (false);
-				CursorLockedVar = (true);
-			}
-			else if(Input.GetKeyDown("escape") && CursorLockedVar)
-			{
-				Cursor.lockState = CursorLockMode.None;
-				Cursor.visible = (true);
-				CursorLockedVar = (false);
-			}
 		}
 		else
 		{
@@ -105,6 +91,7 @@ private bool killPlayer;
 	text2.gameObject.SetActive(true);
 	playerDead = true;
 	gameend = true;
+	timer.Stop();
 	}
 	public void AddScore (int newScoreValue)
 	{
@@ -131,4 +118,12 @@ private bool killPlayer;
 			playerDead = false;
 			timer.Start();
 	}	
+	public void pauseTimer()
+	{
+		timer.Stop();
+	}
+	public void resumeTimer()
+	{
+		timer.Start();
+	}
 }
