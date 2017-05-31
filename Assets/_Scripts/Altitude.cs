@@ -23,7 +23,7 @@ public class Altitude : MonoBehaviour {
 		}
 		else
 		{
-			target = GameObject.FindGameObjectWithTag ("Plane");
+			target = GameObject.FindGameObjectWithTag ("Player");
 		}
 	}
 }

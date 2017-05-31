@@ -1,16 +1,7 @@
 ﻿
-
-
-
 var fireAudioSource : AudioSource;
 
 var fireSound : AudioClip;
-
-
-
-
-
-
 
 var impactprefab : Transform;
 
@@ -24,7 +15,7 @@ var fireRate : float = 0.3;
 var  mask : LayerMask;
 private var isfiring : boolean = false;
 var muzzles : Transform;
-
+var firingPoint : Transform;
 function Start()
 {
 	
@@ -35,11 +26,8 @@ function Start()
 function Update () 
 {
 	
-	
-	
-	if (Input.GetButton("Fire1"))
-	{
-		
+	if (Input.GetButton("Left Button"))
+	{	
 		dofire();
 		muzzles.gameObject.SetActive(true);
 		
@@ -49,7 +37,6 @@ function Update ()
 		muzzles.gameObject.SetActive(false);
 	}
 	
-
 }
 
 function dofire()
@@ -75,14 +62,14 @@ function fire()
 {
 
 	var rand : Vector2 = Random.insideUnitCircle;
-	var fwrd = transform.forward;
+	var fwrd = transform.TransformDirection(Vector3.left);
 
     var Up = transform.up;
     var Right = transform.right;
  
     var wantedvector = fwrd;
     wantedvector += Random.Range( -inaccuracy, inaccuracy ) *Up + Random.Range( -inaccuracy, inaccuracy ) * Right;
-	var ray = new Ray (transform.position, wantedvector);
+	var ray = new Ray (firingPoint.position, wantedvector);
 	var hit : RaycastHit = new RaycastHit();
 	
 	if (Physics.Raycast(ray,hit, range,mask))

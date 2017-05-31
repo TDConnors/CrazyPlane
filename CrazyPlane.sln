@@ -1,7 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{E32ED766-7DF9-298A-728D-ED9CD32E38E9}") = "CrazyPlane", "Assembly-CSharp.csproj", "{21EDC2EB-9784-674E-F14D-2F974E7B72BD}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyPlane", "Assembly-CSharp.csproj", "{21EDC2EB-9784-674E-F14D-2F974E7B72BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

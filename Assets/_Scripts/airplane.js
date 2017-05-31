@@ -42,9 +42,7 @@ function Start()
 }
 function FixedUpdate()
 {
- 	var cameraTransform = GetComponent.<Camera>().main.transform; 
  	forward = transform.TransformDirection(Vector3.forward);
- 	
 	var right = new Vector3(forward.z, 0, -forward.x);
 	var hor = Input.GetAxis("Horizontal");
 	var ver = Input.GetAxis("Vertical");
