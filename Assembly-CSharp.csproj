@@ -46,22 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\UltraReal\UltraRealTools\Scripts\AbstractBases\UltraRealMonobehaviorBase.cs" />
-     <Compile Include="Assets\UltraReal\UltraRealTools\Scripts\Input\MouseJoystick.cs" />
-     <Compile Include="Assets\UltraReal\UltraRealTools\Scripts\Utility\CurserControl.cs" />
-     <Compile Include="Assets\UltraReal\UltraRealTools\Scripts\Utility\ScreenCap.cs" />
-     <Compile Include="Assets\UltraReal\UltraRealTools\Scripts\Utility\TimedDestroy.cs" />
-     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\AbstractBases\UltraRealAmmoBase.cs" />
-     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\AbstractBases\UltraRealDamageBase.cs" />
-     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\AbstractBases\UltraRealLauncherBase.cs" />
-     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\AbstractBases\UltraRealShellCasingBase.cs" />
-     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\AbstractBases\UltraRealWeaponSystemBase.cs" />
-     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\BasicWeaponSystem\BasicAmmoRayCast.cs" />
-     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\BasicWeaponSystem\BasicAmmoRigidBody.cs" />
-     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\BasicWeaponSystem\BasicDamage.cs" />
-     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\BasicWeaponSystem\BasicInputExample.cs" />
-     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\BasicWeaponSystem\BasicLauncher.cs" />
-     <Compile Include="Assets\UltraReal\WeaponSystem\Scripts\BasicWeaponSystem\BasicShellCasing.cs" />
      <Compile Include="Assets\_Menu\Scripts\DontDestroy.cs" />
      <Compile Include="Assets\_Menu\Scripts\EventSystemChecker.cs" />
      <Compile Include="Assets\_Menu\Scripts\Pause.cs" />
@@ -81,18 +65,11 @@
      <Compile Include="Assets\_Scripts\ReverseNormals.cs" />
      <Compile Include="Assets\_Scripts\Rotator.cs" />
      <Compile Include="Assets\_Scripts\SPARTA_PLANE_SCRIPT.cs" />
-     <Compile Include="Assets\_Scripts\Shooter\Shooter.cs" />
      <Compile Include="Assets\_Scripts\TargetSpawner.cs" />
-     <Compile Include="Assets\_Scripts\cameraSmoothFollow.cs" />
-     <Compile Include="Assets\_Scripts\planeExplosion.cs" />
-     <Compile Include="Assets\_Scripts\planeShrapnel.cs" />
-     <None Include="Assets\_Models\Airplane\shaders\specillumShader.shader" />
-     <None Include="Assets\_Models\Airplane\shaders\fogplane.shader" />
      <None Include="Assets\_Menu\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\SimpleCloudSystem by RM\Read Me.txt" />
      <None Include="Assets\SimpleCloudSystem by RM\SCS Instructions.txt" />
      <None Include="Assets\Credits.txt" />
-     <None Include="Assets\UltraReal\ReadMe.txt" />
      <None Include="Assets\_Menu\GameJamTemplateReadMe.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

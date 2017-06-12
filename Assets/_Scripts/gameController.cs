@@ -7,8 +7,6 @@ using System.Diagnostics;
  
 public class GameController : MonoBehaviour {
 
-
-public Stopwatch timer;
 public float timeLimit;
 public int score;
 public Text ScoreText;
@@ -20,8 +18,9 @@ public Vector3 startPos;
 private bool createdPlayer;
 private bool gameend;
 private bool playerDead;
+private bool timerOn;
 private bool killPlayer;
-
+private float myTime;
  
 	// Use this for initialization
 	void Start () 
@@ -35,13 +34,15 @@ private bool killPlayer;
 		gameend = false;
 		playerDead = false;
 		killPlayer = false;
-		timer = new Stopwatch();
+		timerOn = true;
 
 	}
 	//	* 100.0f) / 100.0f)
 	// Update is called once per frame
 	void Update () 
 	{
+	if(timerOn)
+		myTime += Time.deltaTime;
 		if (!gameend)
 		{	
 			if (!createdPlayer || playerDead)
@@ -55,16 +56,16 @@ private bool killPlayer;
 			}
 			else
 			{
-				if (timer.Elapsed.Seconds < timeLimit)
+				if (myTime < timeLimit)
 				{			
-					time.text = "Time: " + (timeLimit - timer.Elapsed.Seconds ).ToString();
+					time.text = "Time: " + (timeLimit - myTime ).ToString("F2");
 				}
 		
-				if (timer.Elapsed.Seconds >= timeLimit) //only happens once
+				if (myTime >= timeLimit) //only happens once
 				{
 					if (killPlayer == false)
 					{
-						timer.Stop();
+					    timerOn = false;
 						time.text = "Time: 0";
 						killPlayer = true;
 						GameObject playerObject = GameObject.FindWithTag ("Player");
@@ -91,7 +92,8 @@ private bool killPlayer;
 	text2.gameObject.SetActive(true);
 	playerDead = true;
 	gameend = true;
-	timer.Stop();
+    timerOn = false;
+	myTime = 0.0f;
 	}
 	public void AddScore (int newScoreValue)
 	{
@@ -116,14 +118,14 @@ private bool killPlayer;
 			text2.gameObject.SetActive(false);
 			createdPlayer = true;
 			playerDead = false;
-			timer.Start();
+			myTime = 0;
 	}	
 	public void pauseTimer()
 	{
-		timer.Stop();
+		timerOn = false;
 	}
 	public void resumeTimer()
 	{
-		timer.Start();
+		timerOn = true;
 	}
 }

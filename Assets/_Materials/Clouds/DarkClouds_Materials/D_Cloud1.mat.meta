@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 3dcc762c3bfdada45a876054ba0030db
+labels:
+- Sky
 NativeFormatImporter:
   userData: 
-  assetBundleName: 
+  assetBundleName: background
   assetBundleVariant: 
