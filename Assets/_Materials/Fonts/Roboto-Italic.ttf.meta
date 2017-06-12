@@ -3,17 +3,19 @@ guid: 6c1cfbe8f11fede4cb336ccccc7cd70a
 timeCreated: 1494391313
 licenseType: Pro
 TrueTypeFontImporter:
-  serializedVersion: 3
+  serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
-  characterSpacing: 1
-  characterPadding: 0
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  fontNames: []
+  fontName: Roboto
+  fontNames:
+  - Roboto
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
   userData: 
-  assetBundleName: 
+  assetBundleName: background
   assetBundleVariant: 

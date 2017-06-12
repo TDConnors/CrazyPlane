@@ -1,2 +1,0 @@
-Terrain = 400m Creations : realistic terrain creations LITE 
-smoke effect = peter strazan

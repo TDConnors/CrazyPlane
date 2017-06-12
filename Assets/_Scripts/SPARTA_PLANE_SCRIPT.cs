@@ -13,7 +13,6 @@ public class SPARTA_PLANE_SCRIPT : MonoBehaviour {
 	gyroX, gyroY, verticalaxis_pos, horizontalaxis_pos;
 	
 	//My VARIABLES
-	public bool TiltToggle;
 	public float addSpeed, max_speed, maxVelocityChange, pitchFactor, plane_pitch_volume, rollFactor, speed, yawFactor, YawTurnSpeed;
 	public Transform boostParticle;
 	public Transform explosion;
@@ -79,6 +78,7 @@ public class SPARTA_PLANE_SCRIPT : MonoBehaviour {
 		// EXAUST
 		exhaustUpdate();
 		//PLANE SPEED
+		maxSpeedupdate();
 		planeSpeedUpdate();
 		//MOVE PLANE
 		flightUpdate();
@@ -113,19 +113,8 @@ public class SPARTA_PLANE_SCRIPT : MonoBehaviour {
 	void rotationUpdate()
 	{
 		transform.Rotate (roll_speed, yaw_speed, pitch_speed);
-		
-		if(TiltToggle == true) //Use Tilt
-		{
-			horizontalaxis_pos = Input.GetAxis ("SideTilt");
-			verticalaxis_pos = Input.GetAxis ("FrontTilt");
-		}
-		else //Use joystick
-		{
-			horizontalaxis_pos = Input.GetAxis ("ShoulderAxis");//reference
-			verticalaxis_pos = Input.GetAxis ("VerticalY");//reference
-		}
-		
-		
+		horizontalaxis_pos = Input.GetAxis ("ShoulderAxis");//reference
+		verticalaxis_pos = Input.GetAxis ("VerticalY");//reference			
 		gyroY = horizontalaxis_pos;//this controls animation of rolling wing flaps
 		gyroX = verticalaxis_pos;  //		||
 		roll_speed = horizontalaxis_pos * rollFactor;//this controls the plane rotation ingame
@@ -215,6 +204,11 @@ public class SPARTA_PLANE_SCRIPT : MonoBehaviour {
 		if (exaustfloat < 1.3f) {
 			anim.SetBool ("SPARTA PLANE EXAUST BOOL", false);
 		}
+	}
+	
+	void maxSpeedupdate()
+	{
+		max_speed = Input.GetAxis ("Speed")*-20;
 	}
 	
 	void planeSpeedUpdate()

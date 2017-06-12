@@ -26,7 +26,7 @@ function Start()
 function Update () 
 {
 	
-	if (Input.GetButton("Left Button"))
+	if (Input.GetButton("Fire Button"))
 	{	
 		dofire();
 		muzzles.gameObject.SetActive(true);
